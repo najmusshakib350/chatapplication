@@ -10,7 +10,7 @@
           <div class="conversation"
             onclick="getMessages('<%= conversation._id %>', '<%= conversation.participant.name %>')">
             <% if (conversation.participant.avatar) { %>
-              <img src="/uploads/avatars/<%= conversation.participant.avatar %>"
+              <img src="/images/uploads/avatars/<%= conversation.participant.avatar %>"
                 alt="<%= conversation.participant.name %>" />
               <% } else { %>
                 <img src="./images/nophoto.png" />
@@ -26,7 +26,7 @@
             <div class="conversation"
               onclick="getMessages('<%= conversation._id %>', '<%= conversation.creator.name %>')">
               <% if (conversation.creator.avatar) { %>
-                <img src="./uploads/avatars/<%= conversation.creator.avatar %>"
+                <img src="/images/uploads/avatars/<%= conversation.creator.avatar %>"
                   alt="<%= conversation.creator.name %>" />
                 <% } else { %>
                   <img src="./images/nophoto.png" />
@@ -94,14 +94,14 @@
           // message class
           const messageClass = data.message.sender.id === loggedinUserId ? 'you-message' : 'other-message';
 
-          const senderAvatar = data.message.sender.avatar ? `<img src="./uploads/avatars/${data.message.sender.avatar}" alt="${data.message.sender.name}" />` : `<img src="./images/nophoto.png" alt="${data.message.sender.name}" />`;
+          const senderAvatar = data.message.sender.avatar ? `<img src="/images/uploads/avatars/${data.message.sender.avatar}" alt="${data.message.sender.name}" />` : `<img src="./images/nophoto.png" alt="${data.message.sender.name}" />`;
 
           // message attachments
           let attachments = '<div class="attachments">';
 
           if (data.message.attachment && data.message.attachment.length > 0) {
             data.message.attachment.forEach(attachment => {
-              attachments += `<img src="./uploads/attachments/${attachment}" /> `;
+              attachments += `<img src="/images/uploads/attachments/${attachment}" /> `;
             });
           }
 
@@ -156,7 +156,7 @@
 
             if (data.messages.length > 0) {
               data.messages.forEach((message) => {
-                let senderAvatar = message.sender.avatar ? `./uploads/avatars/${message.sender.avatar}` : './images/nophoto.png';
+                let senderAvatar = message.sender.avatar ? `/images/uploads/avatars/${message.sender.avatar}` : './images/nophoto.png';
                 const messageClass = message.sender.id === loggedinUserId ? 'you-message' : 'other-message';
                 const showAvatar = message.sender.id === loggedinUserId ? '' : `<img src="${senderAvatar}" alt="${message.sender.name}" />`;
 
@@ -165,7 +165,7 @@
 
                 if (message.attachment && message.attachment.length > 0) {
                   message.attachment.forEach(attachment => {
-                    attachments += `<img src="./uploads/attachments/${attachment}" /> `;
+                    attachments += `<img src="/images/uploads/attachments/${attachment}" /> `;
                   });
                 }
 
