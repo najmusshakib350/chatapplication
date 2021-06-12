@@ -6,13 +6,8 @@
     </div>
     <div class="modal-body">
       <form id="add-conversation-form">
-        <input
-          type="text"
-          placeholder="search user by name or email or mobile"
-          name="user"
-          id="user"
-          autocomplete="off"
-        />
+        <input type="text" placeholder="search user by name or email or mobile" name="user" id="user"
+          autocomplete="off" />
         <p class="error"></p>
         <div class="search_users"></div>
         <input type="submit" value="Submit" class="hide" />
@@ -86,7 +81,7 @@
         let generatedHtml = "<ul>";
         result.forEach((user) => {
           const avatar = user.avatar
-            ? "./uploads/avatars/" + user.avatar
+            ? "/image/uploads/avatars/" + user.avatar
             : "./images/nophoto.png";
 
           generatedHtml += `<li onclick="createConversation('${user._id}', '${user.name}', '${user.avatar}')">
